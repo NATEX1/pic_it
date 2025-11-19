@@ -1,0 +1,37 @@
+'use client'
+import React, { useActionState } from 'react'
+import { updateBuilding } from '../../action'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Button } from '@/components/ui/button'
+import { useParams } from 'next/navigation'
+
+export default function page() {
+  const { id } = useParams()
+  const [state, formAction, isPending] = useActionState(updateBuilding, {
+    success: false,
+    message: '',
+  });
+
+
+  return (
+    <div className='max-w-4xl mx-auto space-y-8'>
+      <h1 className='text-4xl font-bold'>แก้ไข</h1>
+      <form action={formAction} className='space-y-4'>
+        <input type="hidden" name='id' value={id} />
+        <div>
+          <Label htmlFor="name">ชื่ออาคาร</Label>
+          <Input id="name" name="name" className={'bg-gray-200'} />
+        </div>
+        <div>
+          <Label htmlFor="floor">จำนวนชั้น</Label>
+          <Input id="floor" name="floor" className={'bg-gray-200'} />
+        </div>
+        <Button type="submit" disabled={isPending}>
+          {isPending ? 'กำลังบันทึก...' : 'บันทึก'}
+        </Button>
+
+      </form>
+    </div>
+  )
+}
