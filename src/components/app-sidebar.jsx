@@ -10,7 +10,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "./ui/sidebar";
-import { BookCopy, Calendar, Home, Users } from "lucide-react";
+import { BookCopy, Calendar, Home, SquareUser, Users, GraduationCap, UserCog, School, Book, Table, GraduationCapIcon, UserCogIcon, SchoolIcon, Codepen  } from "lucide-react";
 import Link from "next/link";
 
 export default function AppSidebar() {
@@ -37,12 +37,14 @@ export default function AppSidebar() {
       role: ["admin"],
       label: "Admin",
       items: [
-          { label: "Home", icon: Home, href: "/" },
-          { label: "Schedule", icon: Calendar, href: "/" },
-          { label: "Teacher", icon: Users, href: "/" },
-          { label: "Student", icon: Users, href: "/" },
-          { label: "Subject", icon: BookCopy, href: "/subjects" },
-          { label: "Schedule", icon: Calendar, href: "/schedule" },
+          { label: "หน้าหลัก", icon: Home, href: "/home" },
+          { label: "นักเรียน", icon: GraduationCapIcon, href: "/students" },
+          { label: "ครู", icon: UserCogIcon, href: "/teachers" },
+          { label: "แผนก", icon: SchoolIcon, href: "/departments" },
+          { label: "วิชา", icon: BookCopy, href: "/subjects" },
+          { label: "Schedule", icon: Calendar, href: "/schedules" },
+          { label: "กลุ่มการเรียน", icon: Users , href: "/groups" },
+          { label: "ห้องเรียน", icon: Codepen , href: "/classrooms" },
       ],
     },
   ];
