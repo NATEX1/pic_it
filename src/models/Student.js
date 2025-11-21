@@ -16,7 +16,7 @@ const studentSchema = new mongoose.Schema({
     },
     prefix: {
         type: String,
-        enum: ['ด.ช.', 'ด.ญ.', 'น.ส.', 'นางสาว', 'นาย', 'นาง'],
+        enum: ['นางสาว', 'นาย', 'นาง'],
         required: true
     },
     firstName: {

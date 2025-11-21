@@ -10,7 +10,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "./ui/sidebar";
-import { Calendar, Home, Users } from "lucide-react";
+import { BookCopy, Calendar, Home, Users } from "lucide-react";
+import Link from "next/link";
 
 export default function AppSidebar() {
   const role = "admin";
@@ -40,7 +41,8 @@ export default function AppSidebar() {
           { label: "Schedule", icon: Calendar, href: "/" },
           { label: "Teacher", icon: Users, href: "/" },
           { label: "Student", icon: Users, href: "/" },
-          { label: "Schedule", icon: Calendar, href: "/" },
+          { label: "Subject", icon: BookCopy, href: "/subjects" },
+          { label: "Schedule", icon: Calendar, href: "/schedule" },
       ],
     },
   ];
@@ -60,8 +62,10 @@ export default function AppSidebar() {
                 <SidebarMenu>
                   {menu.items.map((item, j) => (
                     <SidebarMenuItem key={j}>
-                      <SidebarMenuButton>
+                      <SidebarMenuButton asChild>
+                       <Link href={item.href}>
                         <item.icon /> {item.label}
+                        </Link>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
                   ))}

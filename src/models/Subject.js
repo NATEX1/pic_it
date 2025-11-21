@@ -6,12 +6,13 @@ const subjectSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    group: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Group'
+    },
     name: {
         type: String,
         required: true
-    },
-    shortName: {
-        type: String
     },
     hoursPerWeek: {
         type: Number,

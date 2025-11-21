@@ -66,8 +66,8 @@ export const authOptions = {
             }
         }),
         CredentialsProvider({
-            id: "teacher",
-            name: "Teacher",
+            id: "admin",
+            name: "Admin",
             credentials: {
                 username: { label: "ชื่อผู้ใช้", type: "text" },
                 password: { label: "รหัสผ่าน", type: "password" }
@@ -75,11 +75,11 @@ export const authOptions = {
             async authorize(credentials) {
                 const { username, password } = credentials;
 
-                if(username !== 'admin' && password !== '1234'){
+                if (username !== 'admin' && password !== '1234') {
                     throw new Error("เข้าสู่ระบบไม่สำเร็จ");
                 }
 
-                 return {
+                return {
                     id: 'adminId',
                     name: `Admin Art`,
                     role: "admin",
